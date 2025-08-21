@@ -1,0 +1,112 @@
+---
+title: دیاگرام‌ها
+description: افزودن انواع مختلف دیاگرام‌ها، شامل فلوچارت، درخت تصمیم و دیاگرام‌های موجودیت-رابطه.
+---
+
+دیاگرام‌ها ابزار قدرتمندی برای نمایش فرآیندها، روابط و تصمیمات به صورت بصری هستند. این بخش انواع مختلف دیاگرام‌هایی که با **Mermaid** ساخته شده‌اند را همراه با مثال‌ها و قطعه‌کدهای قابل استفاده مجدد معرفی می‌کند تا بتوانید آن‌ها را به پروژه‌های خود اضافه کنید.
+
+## فلوچارت (Flowchart)
+
+فلوچارت دنباله‌ای از مراحل یا فرآیندها را به صورت تصویری نمایش می‌دهد. از این دیاگرام می‌توانید برای ترسیم گردش‌کارها، فرآیندهای تصمیم‌گیری یا جریان‌های عملیاتی استفاده کنید.
+
+<Mermaid
+  chart={`graph TD;
+    Start --> Task1;
+    Task1 --> Task2;
+    Task2 --> End;`}
+/>
+
+```jsx
+<Mermaid
+  chart={\`
+    graph TD;
+    Start --> Task1;
+    Task1 --> Task2;
+    Task2 --> End;
+  \`}
+ />
+```
+
+## درخت تصمیم (Decision Tree)
+
+درخت‌های تصمیم انتخاب‌ها و پیامدهای احتمالی آن‌ها را نشان می‌دهند و برای فرآیندهای تصمیم‌گیری یا جریان‌هایی با مسیرهای مختلف بسیار مناسب‌اند.
+
+<Mermaid
+  chart={`graph TD;
+    A[Start] --> B{Is it raining?};
+    B -->|Yes| C[Take an umbrella];
+    B -->|No| D[Enjoy the weather];
+    C --> E[Go outside];
+    D --> E;`}
+/>
+
+```jsx
+<Mermaid
+  chart={\`
+    graph TD;
+    A[Start] --> B{آیا باران می‌بارد؟};
+    B -->|بله| C[چتر بردار];
+    B -->|خیر| D[از هوا لذت ببر];
+    C --> E[برو بیرون];
+    D --> E;
+  \`}
+ />
+```
+
+## دیاگرام موجودیت-رابطه (Entity-Relationship Diagram)
+
+دیاگرام‌های موجودیت-رابطه (ERD) برای مدل‌سازی روابط بین موجودیت‌ها در یک سیستم استفاده می‌شوند. این دیاگرام‌ها به‌طور گسترده در طراحی پایگاه‌داده و برنامه‌ریزی معماری سیستم کاربرد دارند.
+
+<Mermaid
+  chart={`erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+    PRODUCT ||--o{ LINE-ITEM : "included in"
+    CUSTOMER {
+        string name
+        string email
+    }
+    ORDER {
+        int orderNumber
+        date orderDate
+    }
+    LINE-ITEM {
+        int quantity
+        float price
+    }
+    PRODUCT {
+        int productId
+        string name
+        float price
+    }`}
+/>
+
+```jsx
+<Mermaid
+  chart={\`
+    erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+    PRODUCT ||--o{ LINE-ITEM : "included in"
+    CUSTOMER {
+        string name
+        string email
+    }
+    ORDER {
+        int orderNumber
+        date orderDate
+    }
+    LINE-ITEM {
+        int quantity
+        float price
+    }
+    PRODUCT {
+        int productId
+        string name
+        float price
+    }
+  \`}
+ />
+```
+
+هر یک از این دیاگرام‌ها هدف خاصی را دنبال می‌کند و Mermaid ایجاد آن‌ها را به صورت پویا آسان می‌سازد. می‌توانید آزادانه با قطعه‌کدهای ارائه‌شده کار کرده و آن‌ها را متناسب با نیاز خود تغییر دهید.
